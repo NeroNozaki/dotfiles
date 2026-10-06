@@ -46,7 +46,7 @@
 
 ;; eglot
 (require 'eglot-java)
-;; (add-hook 'java-ts-mode-hook #'eglot-java-mode)
+(add-hook 'java-ts-mode-hook #'eglot-java-mode)
 
 (use-package eglot
   :hook ((js2-mode . eglot-ensure)
@@ -54,7 +54,7 @@
 ;;          (python-ts-mode . eglot-ensure)
 ;;          (arduino-mode . eglot-ensure)
          (zig-mode . eglot-ensure)
-;;          (java-mode . eglot-ensure)
+         (java-mode . eglot-ensure)
           ;; (c-ts-mode . eglot-ensure)
           )
   )

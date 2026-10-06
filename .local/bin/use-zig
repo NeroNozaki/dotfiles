@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ln -sf ~/repos/libz/
+ln -sf $HOME/projects/libz/

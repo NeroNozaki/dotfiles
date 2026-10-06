@@ -3,6 +3,10 @@
 session="arduino-cli"
 dir="$HOME/programming/esp32/"
 
+clear_screen() {
+    tmux send-keys -t $session:$1 'clear' C-m
+}
+
 
 if ! tmux has-session -t $session 2>/dev/null; then
     tmux new-session -d -s $session -c "$dir"
@@ -15,11 +19,12 @@ fi
 
 
 tmux send-keys -t $session:2 'clear' C-m
+tmux send-keys -t $session:2 'source "$HOME/.config/tmux/scripts/arduino.sh"' C-m
+clear_screen 2
 tmux send-keys -t $session:2 'arduino-cli board list' C-m
 
-tmux send-keys -t $session:3 'clear' C-m
+clear_screen 3
 tmux send-keys -t $session:3 "arduino-cli monitor -p /dev/ttyUSB0 -c baudrate=115200" C-m
-tmux send-keys -t $session:3 C-c
 
 tmux select-window -t $session:2
 
