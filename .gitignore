@@ -1,14 +1,5 @@
 .git-credentials
-.emacs.d/.tutor/
-.emacs.d/.tutor/***
-.emacs.d/tree-sitter/
-.emacs.d/#doesn't matter#
-.emacs.d/auto-save-list/
-.emacs.d/backups/
-.emacs.d/eglot-java-eclipse-jdt-cache/
-.emacs.d/eln-cache/
-.emacs.d/ido.last
-.emacs.d/session.107fceb08c969ec4e9178744636986432800000017000054
-.emacs.d/projects
-.emacs.d/history
-.config/nvim/
+/config/tmux/plugins/*
+/config/awesome
+/config/nvim
+/config/emacs

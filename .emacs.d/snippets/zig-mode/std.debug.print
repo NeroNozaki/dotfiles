@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: std.debug.print
-# key: debugprint
-# --
-std.debug.print("$1", .{$2})$0

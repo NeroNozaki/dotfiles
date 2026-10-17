@@ -1,0 +1,48 @@
+Background = "#1C1C1C"
+Black = "#262626"
+Surface = "#333333"
+Border = "#484848"
+Muted = "#929292"
+Foreground = "#D4D4D4"
+Crimson = "#df5b61"
+Dark_red = "#B83A48"
+Orange = "#E87545"
+Gold = "#DDBB55"
+Green = "#75B88A"
+Turquoise = "#65BDB5"
+Blue = "#78A8D8"
+Purple = "#B18ADB"
+Pink = "#D98BC8"
+
+--- Black
+theme.color0 = "#232526"
+theme.color8 = "#2c2e2f"
+
+--- Blue
+theme.color1 = "#6791c9"
+theme.color9 = "#709ad2"
+
+--- Green
+theme.color2 = "#78b892"
+theme.color10 = "#81c19b"
+
+--- Yellow
+theme.color3 = "#de8f78"
+theme.color11 = "#e79881"
+
+--- Red
+theme.color4 = "#df5b61"
+theme.color12 = "#e8646a"
+
+--- Magenta
+theme.color5 = "#bc83e3"
+theme.color13 = "#c58cec"
+
+--- Cyan
+theme.color6 = "#67afc1"
+theme.color14 = "#70b8ca"
+
+--- White
+theme.color7 = "#e4e6e7"
+t
+theme.color15 = "#f2f4f5"

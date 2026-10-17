@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+brightness=$1
+
+if [[ "$brightness" == "low" ]]; then
+    brightness=1
+elif [[ "$brightness" == "normal" ]]; then
+    brightness=2400
+fi
+    
+
+echo "$brightness" | sudo tee /sys/class/backlight/intel_backlight/brightness

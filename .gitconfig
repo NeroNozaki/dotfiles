@@ -3,3 +3,5 @@
 	email = 117748267+NeroNozaki@users.noreply.github.com
 [credential]
 	helper = store
+[core]
+	editor = nvim

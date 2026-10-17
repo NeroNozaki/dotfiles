@@ -1,0 +1,31 @@
+(defcfg
+    input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd" :ignore-missing true)
+    output (uinput-sink "My KMonad output" "sleep 1 && setxkbmap -option 'shift:both_capslock_cancel'")
+    fallthrough true
+)
+
+(defsrc
+    caps
+    a s d f
+    j k l ;
+)
+
+(defalias
+    esc_ctrl (tap-next-release esc lctl)
+
+    a_gui   (tap-next-release a lmet)
+    s_alt   (tap-next-release s lalt)
+    d_ctrl  (tap-next-release d lctl)
+    f_shift (tap-next-release f lsft)
+
+    j_shift (tap-next-release j rsft)
+    k_ctrl  (tap-next-release k rctl)
+    l_alt   (tap-next-release l ralt)
+    ;_gui   (tap-next-release ; rmet)
+)
+
+(deflayer mylayer
+    @esc_ctrl
+    @a_gui @s_alt @d_ctrl @f_shift
+    @j_shift @k_ctrl @l_alt @;_gui
+)

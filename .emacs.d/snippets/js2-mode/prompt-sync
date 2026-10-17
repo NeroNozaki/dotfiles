@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: prompt-sync
-# key: prompt-sync
-# --
-
-const prompt = require('prompt-sync')({ sigint: true });
