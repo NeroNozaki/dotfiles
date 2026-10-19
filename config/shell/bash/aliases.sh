@@ -1,3 +1,16 @@
+# enable color support of ls and also add handy aliases
+if command -v dircolors >/dev/null 2>&1; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='rg --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+
 # some ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -10,7 +23,9 @@ alias quit='exit'
 alias reload='source ~/.bashrc'
 alias tmux-reload='tmux source ~/.config/tmux/tmux.conf'
 
-alias dotfiles="pushd ~/.dotfiles && ll"
+alias rebuild='sudo nixos-rebuild switch'
+
+alias dotfiles="~/.dotfiles"
 
 alias python="python3"
 alias zig-quiet="ZIG_PROGRESS=100 zig"
