@@ -3,17 +3,17 @@
   "logo": {
     "type": "auto",
     "source": "",
-    "color": {
-      "1": "red",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": ""
-    },
+    // "color": {
+    //   "1": "red",
+    //   "2": "",
+    //   "3": "",
+    //   "4": "",
+    //   "5": "",
+    //   "6": "",
+    //   "7": "",
+    //   "8": "",
+    //   "9": ""
+    // },
 
     "width": null,
     "height": null,
@@ -25,7 +25,7 @@
 
     "printRemaining": true,
     "preserveAspectRatio": false,
-    "cache": false,
+    // "cache": false,
     "position": "left",
     "chafa": {
       "fgOnly": false,
