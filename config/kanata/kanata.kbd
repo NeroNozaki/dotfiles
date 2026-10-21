@@ -1,0 +1,32 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps
+  a s d f
+  j k l ;
+)
+
+(defalias
+  ;; Caps Lock: Tap -> Escape, Hold -> Control
+  caps_mod (tap-hold 150 200 esc lctl)
+
+  ;; Left Hand Home Row Mods
+  a_mod (tap-hold-release 150 200 a lmet)
+  s_mod (tap-hold-release 150 200 s lalt)
+  d_mod (tap-hold-release 150 200 d lctl)
+  f_mod (tap-hold-release 150 200 f lsft)
+
+  ;; Right Hand Home Row Mods
+  j_mod (tap-hold-release 150 200 j rsft)
+  k_mod (tap-hold-release 150 200 k rctl)
+  l_mod (tap-hold-release 150 200 l ralt)
+  ;_mod (tap-hold-release 150 200 ; rmet)
+)
+
+(deflayer base
+  @caps_mod
+  @a_mod @s_mod @d_mod @f_mod
+  @j_mod @k_mod @l_mod @;_mod
+)

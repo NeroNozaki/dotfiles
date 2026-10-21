@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the ID of the first device that contains "Touchpad"
 TOUCHPAD_ID=$(xinput list | grep -i touchpad | grep -o 'id=[0-9]*' | head -n1 | cut -d= -f2)
