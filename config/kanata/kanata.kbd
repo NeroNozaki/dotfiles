@@ -16,10 +16,10 @@
   a_mod (tap-hold-release 150 200 a lmet)
   s_mod (tap-hold-release 150 200 s lalt)
   d_mod (tap-hold-release 150 200 d lctl)
-  f_mod (tap-hold-release 150 200 f lsft)
+  f_mod (tap-hold-release 150 200 f rsft)
 
   ;; Right Hand Home Row Mods
-  j_mod (tap-hold-release 150 200 j rsft)
+  j_mod (tap-hold-release 150 200 j lsft)
   k_mod (tap-hold-release 150 200 k rctl)
   l_mod (tap-hold-release 150 200 l ralt)
   ;_mod (tap-hold-release 150 200 ; rmet)

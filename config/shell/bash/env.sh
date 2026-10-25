@@ -10,3 +10,6 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# opencode
+export PATH=/home/pretzels/.opencode/bin:$PATH
