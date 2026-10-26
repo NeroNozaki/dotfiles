@@ -17,3 +17,7 @@ cdl() {
 c() {
     cd ~/.config/"$@"
 }
+
+youtube-download() {
+     yt-dlp -f "bestvideo[height<=720][ext=mp4]+(bestaudio[ext=m4a]/bestaudio)/best[height<=720][ext=mp4]/best" --merge-output-format mp4 $ "$1" --sponsorblock-remove sponsor --paths "/mnt/HD/videos/youtube"
+}
