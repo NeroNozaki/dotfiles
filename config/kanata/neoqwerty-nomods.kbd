@@ -1,0 +1,70 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+;; Physical input layout matching standard QWERTY
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  caps a    s    d    f    g    h    j    k    l    ;    '    \    ret
+  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defalias
+  ;; Mod3 activation: Caps Lock (Esc on tap, Layer 3 on hold)
+  m3_l (tap-hold 150 200 esc (layer-while-held layer3))
+  ;; Mod3 activation: Right key (backslash/hash position)
+  m3_r (layer-while-held layer3)
+
+  ;; Mod4 activation: Left key (between LShift and Z) and Right Alt (AltGr)
+  m4_l (layer-while-held layer4)
+  m4_r (layer-while-held layer4)
+
+  ;;;; Home row mods (Left hand: Win, Alt, Ctrl, Shift)
+  ;;a_met (tap-hold 150 200 a lmet)
+  ;;s_alt (tap-hold 150 200 s lalt)
+  ;;d_ctl (tap-hold 150 200 d lctl)
+  ;;f_sft (tap-hold 150 200 f rsft)
+  ;;
+  ;;;; Home row mods (Right hand mirrored: Shift, Ctrl, Alt, Win)
+  ;;j_sft (tap-hold 150 200 j lsft)
+  ;;k_ctl (tap-hold 150 200 k rctl)
+  ;;l_alt (tap-hold 150 200 l ralt)
+  ;;sc_met (tap-hold 150 200 ; rmet)
+  ;;
+  3d (unicode …)
+  question (unicode ?)
+)
+
+;; Layer 1: Base QWERTY Layout
+(deflayer base
+  grv   1      2      3      4      5    6    7      8      9      0       -    =    bspc
+  tab   q      w      e      r      t    y    u      i      o      p       [    ]
+  @m3_l a      s      d      f      g    h    j      k      l      ;       '    @m3_r ret
+  lsft  @m4_l  z      x      c      v    b    n      m      ,      .       /    rsft
+  lctl  lmet   lalt           spc            @m4_r  rmet   rctl
+)
+
+(defoverrides
+  (lsft /) (\)
+  (rsft /) (\)
+)
+
+;; Layer 3: Neo 2 Symbol Layer (Activated via Left Mod3 or Right Mod3)
+(deflayer layer3
+  _     _      _      _      _      _      _      _      _      _      _       _   _   _
+  _     @3d    S--    [      ]      S-6    S-1    S-,    S-.    =      S-7     _   _   _
+  \     /      S-[    S-]    S-8    @question    S-9    S-0    -      S-;    S-2     _   _
+  _     _      S-3    S-4    S-\    S-`    `      +      S-5    S-'    '       S-\   _
+  _     _      _                    _                    _      _      _
+)
+
+;; Layer 4: Neo 2 Navigation & Numpad Layer (Activated via Left Mod4 or Right Mod4)
+(deflayer layer4
+  _     _      _      _      _      _     _    _     _      _      _    _    _    _
+  _     pgup   bspc   up     del    pgdn  _    7     8      9      +    _    _    _
+  home  left   down   rght   end    _     4    5     6      -      _    _    _
+  _     _      tab    ins    ret    _     _    0     1      2      3    .    _
+  _     _      _                    spc              _      _      _ 
+)

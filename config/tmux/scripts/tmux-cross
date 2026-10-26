@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-session="quest3"
+session="cross-adventures"
 dir="/mnt/HD/godot-projects/$session/"
 
 
@@ -15,7 +15,7 @@ fi
 
 tmux send-keys -t "$session:3" "godot -e" C-m
 
-tmux send-keys -t "$session:2" "$HOME/.dotfiles/.config/tmux/scripts/wait-godot.sh" C-m
+tmux send-keys -t "$session:2" "$HOME/.dotfiles/config/tmux/scripts/wait-godot.sh" C-m
 
 tmux select-window -t "$session:1"
 tmux attach -t "$session"
