@@ -1,0 +1,259 @@
+;; Neo2 layers 3-6 + custom US-QWERTY layers 1-2 (ABNT2 hardware, Windows 11).
+;; GENERATED BEST-EFFORT CONFIGURATION — see accompanying README before use.
+;; Reference sources:
+;;   https://www.neo-layout.org/Benutzerhandbuch/Tastaturbelegung/
+;;   https://www.neo-layout.org/Benutzerhandbuch/Tote-Tasten-und-Compose/
+;;   https://cgit.freedesktop.org/xkeyboard-config/tree/symbols/de
+;;   https://jtroo.github.io/config.html
+;;
+;; IMPORTANT:
+;; 1) Set the Windows input language/layout to English (United States). Kanata emits ordinary
+;;    key events for QWERTY and ASCII; the active Windows layout translates those events.
+;; 2) Use a Windows Kanata build supporting deflocalkeys-win and deflocalkeys-winiov2.
+;; 3) This file maps the XKB Neo character levels 3..8. XKB level 4 is Neo layer 5,
+;;    level 5 is Neo layer 4, and level 7 is Neo layer 6 (the official XKB ordering).
+;; 4) Dead-key positions emit their spacing/combining accent directly, not native dead-key state.
+;;    Tab on neo8 switches back to QWERTY to make Shift+Mod3+Tab a Mod4-lock release shortcut.
+;;    The official Compose database is not fully included; common sequences are included.
+;; 5) ABNT2-specific key aliases: nubs=VK_OEM_102 (left of Z); abntc1=VK_ABNT_C1 (extra /?).
+
+(defcfg
+  windows-altgr cancel-lctl-press
+  sequence-timeout 1400
+  sequence-input-mode visible-backspaced
+  concurrent-tap-hold yes
+)
+
+(deflocalkeys-win
+  nubs 226
+  abntc1 193
+)
+(deflocalkeys-winiov2
+  nubs 226
+  abntc1 193
+)
+
+(defsrc
+  grv  1  2  3  4  5  6  7  8  9  0  -  =  bspc
+  tab  q  w  e  r  t  y  u  i  o  p  [  ]  \
+  caps a  s  d  f  g  h  j  k  l  ;  '  ret
+  lsft nubs z  x  c  v  b  n  m  ,  .  /  abntc1 rsft
+  lctl lmet lalt spc ralt rmet rctl
+)
+
+(defalias
+  compose sldr
+)
+
+(defvirtualkeys
+  neo4-lock-toggle
+    (switch
+      ((layer neo4-lock)) (layer-switch qwerty) break
+      ()                  (layer-switch neo4-lock) break
+    )
+)
+
+;; Both Shift keys together emit Windows Caps Lock.
+(defchordsv2
+  (lsft rsft) caps 180 all-released ()
+  (nubs ralt) (on-press tap-vkey neo4-lock-toggle) 180 all-released ()
+)
+(deflayer qwerty
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  (unicode U+0060)  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (tap-hold-press 180 180 (unicode U+005C) (layer-while-held neo3))  (layer-while-held neo3)  a  s  d  f  g  h  j  k  l  ;  _  ret  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003C) (layer-while-held neo4))  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
+)
+
+(deflayer qwerty-shift
+  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  (unicode U+00B8)  _  _  _  _  _  _  _  _  _  _  _  _  _  _  (tap-hold-press 180 180 (unicode U+007C) (layer-while-held neo5))  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003E) (layer-while-held neo7))  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
+)
+
+(deflayer neo3
+  (unicode U+21BB)  (unicode U+00B9)  (unicode U+00B2)  (unicode U+00B3)  (unicode U+203A)  (unicode U+2039)  (unicode U+00A2)  (unicode U+00A5)  (unicode U+201A)  (unicode U+2018)  (unicode U+2019)  XX  (unicode U+02DA)  _
+  @compose  (unicode U+2026)  (unicode U+005F)  (unicode U+005B)  (unicode U+005D)  S-6  S-1  S-,  S-.  (unicode U+003D)  S-7  (unicode U+017F)  (unicode U+002F)  (layer-while-held neo3)
+  (layer-while-held neo3)  (unicode U+005C)  (unicode U+002F)  S-[  S-]  S-8  S-/  S-9  S-0  (unicode U+002D)  S-;  S-2  _
+  (multi lsft (layer-while-held neo5))  (layer-while-held neo6)  S-3  S-4  S-\  S-grv  (unicode U+0060)  S-=  S-5  S-'  (unicode U+0027)  (unicode U+003B)  XX  (multi rsft (layer-while-held neo5))
+  _  _  _  spc  (layer-while-held neo6)  _  _
+)
+
+(deflayer neo5
+  (unicode U+02DE)  (unicode U+2081)  (unicode U+2082)  (unicode U+2083)  (unicode U+2640)  (unicode U+2642)  (unicode U+26A5)  (unicode U+03F0)  (unicode U+27E8)  (unicode U+27E9)  (unicode U+2080)  (unicode U+2011)  (unicode U+1FFE)  _
+  (layer-switch neo4-lock)  (unicode U+03BE)  XX  (unicode U+03BB)  (unicode U+03C7)  (unicode U+03C9)  (unicode U+03BA)  (unicode U+03C8)  (unicode U+03B3)  (unicode U+03C6)  (unicode U+03D5)  (unicode U+03C2)  (unicode U+1FBF)  (layer-while-held neo5)
+  (layer-while-held neo5)  XX  (unicode U+03B9)  (unicode U+03B1)  (unicode U+03B5)  (unicode U+03BF)  (unicode U+03C3)  (unicode U+03BD)  (unicode U+03C1)  (unicode U+03C4)  (unicode U+03B4)  (unicode U+03C5)  _
+  (multi lsft (layer-while-held neo5))  (layer-while-held neo8)  XX  (unicode U+03F5)  (unicode U+03B7)  (unicode U+03C0)  (unicode U+03B6)  (unicode U+03B2)  (unicode U+03BC)  (unicode U+03F1)  (unicode U+03D1)  (unicode U+03B8)  XX  (multi rsft (layer-while-held neo5))
+  _  _  _  (unicode U+00A0)  (layer-while-held neo8)  _  _
+)
+
+(deflayer neo4
+  (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
+  XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002E)  XX  _
+  (multi lsft (layer-while-held neo7))  (layer-while-held neo4)  esc  tab  XX  XX  C-z  S-;  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
+  _  _  _  (unicode U+0030)  (layer-while-held neo4)  _  _
+)
+
+(deflayer neo7
+  (multi lalt lsft nlck)  XX  XX  XX  XX  XX  XX  XX  S-tab  (unicode U+002F)  S-8  (unicode U+002D)  XX  _
+  XX  pgup  bspc  up  del  pgdn  XX  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  XX  XX  (layer-while-held neo8)
+  (layer-while-held neo8)  home  left  down  right  end  XX  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002C)  (unicode U+002E)  _
+  (multi lsft (layer-while-held neo7))  (layer-while-held neo7)  esc  tab  XX  XX  C-y  XX  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  XX  XX  (multi rsft (layer-while-held neo7))
+  _  _  _  (unicode U+0030)  (layer-while-held neo7)  _  _
+)
+
+
+(deflayer neo6
+  (unicode U+0323)  (unicode U+00AC)  (unicode U+2228)  (unicode U+2227)  (unicode U+22A5)  (unicode U+2221)  (unicode U+2225)  (unicode U+2192)  (unicode U+221E)  (unicode U+FE00)  (unicode U+2205)  (unicode U+2010)  (unicode U+00AF)  _
+  XX  (unicode U+039E)  (unicode U+221A)  (unicode U+039B)  (unicode U+2102)  (unicode U+03A9)  (unicode U+00D7)  (unicode U+03A8)  (unicode U+0393)  (unicode U+03A6)  (unicode U+211A)  (unicode U+2218)  (unicode U+02D8)  (layer-while-held neo6)
+  (layer-while-held neo6)  (unicode U+2208)  (unicode U+222B)  (unicode U+2200)  (unicode U+2203)  (unicode U+2208)  (unicode U+03A3)  (unicode U+2115)  (unicode U+211D)  (unicode U+2202)  (unicode U+0394)  (unicode U+2207)  _
+  (multi lsft (layer-while-held neo8))  (layer-while-held neo6)  (unicode U+222A)  (unicode U+2229)  (unicode U+2135)  (unicode U+03A0)  (unicode U+2124)  (unicode U+21D0)  (unicode U+21D4)  (unicode U+21D2)  (unicode U+21A6)  (unicode U+0398)  XX  (multi lsft (layer-while-held neo8))
+  _  _  _  (unicode U+202F)  (layer-while-held neo6)  _  _
+)
+
+(deflayer neo8
+  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  _
+  (layer-switch qwerty)  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  (layer-while-held neo8)
+  (layer-while-held neo8)  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  _
+  (multi lsft (layer-while-held neo8))  (layer-while-held neo8)  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  (multi lsft (layer-while-held neo8))
+  _  _  _  XX  (layer-while-held neo8)  _  _
+)
+
+(deflayer neo4-lock
+  (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
+  XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002E)  XX  _
+  (multi lsft (layer-while-held neo7))  (layer-while-held qwerty)  esc  tab  XX  XX  C-z  S-;  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
+  _  _  _  (unicode U+0030)  (layer-while-held qwerty)  _  _
+)
+
+;; Compose sequences: common and official examples; this is not the complete Neo database.
+(defseq
+  c001-ae (a e)
+  c002-ae (S-a S-e)
+  c003-oe (o e)
+  c004-oe (S-o S-e)
+  c005-ss (s s)
+  c006-ss (S-s S-s)
+  c007-th (t h)
+  c008-th (S-t S-h)
+  c009-dh (d h)
+  c010-dh (S-d S-h)
+  c011-comma-c (, c)
+  c012-comma-c (, S-c)
+  c013-t1-super7 (grv 7)
+  c014-quote-a (S-' a)
+  c015-quote-a (S-' S-a)
+  c016-quote-e (S-' e)
+  c017-quote-e (S-' S-e)
+  c018-quote-i (S-' i)
+  c019-quote-i (S-' S-i)
+  c020-quote-o (S-' o)
+  c021-quote-o (S-' S-o)
+  c022-quote-u (S-' u)
+  c023-quote-u (S-' S-u)
+  c024-quote-y (S-' y)
+  c025-quote-y (S-' S-y)
+  c026-circ-a (grv a)
+  c027-circ-a (grv S-a)
+  c028-circ-e (grv e)
+  c029-circ-e (grv S-e)
+  c030-circ-i (grv i)
+  c031-circ-i (grv S-i)
+  c032-circ-o (grv o)
+  c033-circ-o (grv S-o)
+  c034-circ-u (grv u)
+  c035-circ-u (grv S-u)
+  c036-tilde-a (S-] a)
+  c037-tilde-a (S-] S-a)
+  c038-tilde-n (S-] n)
+  c039-tilde-n (S-] S-n)
+  c040-tilde-o (S-] o)
+  c041-tilde-o (S-] S-o)
+  c042-grave-a (= a)
+  c043-grave-a (= S-a)
+  c044-grave-e (= e)
+  c045-grave-e (= S-e)
+  c046-grave-i (= i)
+  c047-grave-i (= S-i)
+  c048-grave-o (= o)
+  c049-grave-o (= S-o)
+  c050-grave-u (= u)
+  c051-grave-u (= S-u)
+  c052-heart (S-, 3)
+  c053-right-arrow (- S-.)
+  c054-left-arrow (S-, -)
+  c055-ellipsis (. . .)
+  c056-em-dash (- - -)
+  c057-half (1 2)
+  c058-quarter (1 4)
+  c059-three-quarters (3 4)
+  c060-copyright (c o)
+  c061-registered (r o)
+  c062-trademark (t m)
+  c063-degree (o o)
+  c064-ohm (o m)
+)
+(defvirtualkeys
+  c001-ae (unicode U+00E6)
+  c002-ae (unicode U+00C6)
+  c003-oe (unicode U+0153)
+  c004-oe (unicode U+0152)
+  c005-ss (unicode U+00DF)
+  c006-ss (unicode U+1E9E)
+  c007-th (unicode U+00FE)
+  c008-th (unicode U+00DE)
+  c009-dh (unicode U+00F0)
+  c010-dh (unicode U+00D0)
+  c011-comma-c (unicode U+00E7)
+  c012-comma-c (unicode U+00C7)
+  c013-t1-super7 (unicode U+2077)
+  c014-quote-a (unicode U+00E4)
+  c015-quote-a (unicode U+00C4)
+  c016-quote-e (unicode U+00EB)
+  c017-quote-e (unicode U+00CB)
+  c018-quote-i (unicode U+00EF)
+  c019-quote-i (unicode U+00CF)
+  c020-quote-o (unicode U+00F6)
+  c021-quote-o (unicode U+00D6)
+  c022-quote-u (unicode U+00FC)
+  c023-quote-u (unicode U+00DC)
+  c024-quote-y (unicode U+00FF)
+  c025-quote-y (unicode U+0178)
+  c026-circ-a (unicode U+00E2)
+  c027-circ-a (unicode U+00C2)
+  c028-circ-e (unicode U+00EA)
+  c029-circ-e (unicode U+00CA)
+  c030-circ-i (unicode U+00EE)
+  c031-circ-i (unicode U+00CE)
+  c032-circ-o (unicode U+00F4)
+  c033-circ-o (unicode U+00D4)
+  c034-circ-u (unicode U+00FB)
+  c035-circ-u (unicode U+00DB)
+  c036-tilde-a (unicode U+00E3)
+  c037-tilde-a (unicode U+00C3)
+  c038-tilde-n (unicode U+00F1)
+  c039-tilde-n (unicode U+00D1)
+  c040-tilde-o (unicode U+00F5)
+  c041-tilde-o (unicode U+00D5)
+  c042-grave-a (unicode U+00E0)
+  c043-grave-a (unicode U+00C0)
+  c044-grave-e (unicode U+00E8)
+  c045-grave-e (unicode U+00C8)
+  c046-grave-i (unicode U+00EC)
+  c047-grave-i (unicode U+00CC)
+  c048-grave-o (unicode U+00F2)
+  c049-grave-o (unicode U+00D2)
+  c050-grave-u (unicode U+00F9)
+  c051-grave-u (unicode U+00D9)
+  c052-heart (unicode U+2665)
+  c053-right-arrow (unicode U+2192)
+  c054-left-arrow (unicode U+2190)
+  c055-ellipsis (unicode U+2026)
+  c056-em-dash (unicode U+2014)
+  c057-half (unicode U+00BD)
+  c058-quarter (unicode U+00BC)
+  c059-three-quarters (unicode U+00BE)
+  c060-copyright (unicode U+00A9)
+  c061-registered (unicode U+00AE)
+  c062-trademark (unicode U+2122)
+  c063-degree (unicode U+00B0)
+  c064-ohm (unicode U+03A9)
+)
+
