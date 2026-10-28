@@ -28,6 +28,7 @@
   nubs 226
   abntc1 193
 )
+
 (deflocalkeys-winiov2
   nubs 226
   abntc1 193
@@ -42,7 +43,60 @@
 )
 
 (defalias
-  compose sldr
+
+  m3_l (tap-hold 150 200 esc (layer-while-held neo3))
+
+  r-sft (multi rsft (layer-while-held qwerty-shift))
+  l-sft (multi lsft (layer-while-held qwerty-shift))
+
+  ;; Home row mods (Left hand: Win, Alt, Ctrl, Shift)
+  a_met (tap-hold 150 200 a lmet)
+  s_alt (tap-hold 150 200 s lalt)
+  d_ctl (tap-hold 150 200 d lctl)
+  f_sft (tap-hold 150 200 f @r-sft)
+
+  ;; Home row mods (Right hand mirrored: Shift, Ctrl, Alt, Win)
+  j_sft (tap-hold 150 200 j @l-sft)
+  k_ctl (tap-hold 150 200 k rctl)
+  l_alt (tap-hold 150 200 l ralt)
+  sc_met (tap-hold 150 200 ; rmet)
+
+  ;; General Compose: its sequences begin with nop0.
+  compose (macro (sequence 1200 hidden-delay-type) 10 nop0)
+
+  ;; T2, level 4: diaeresis.
+  diaeresis (macro (sequence 1200 hidden-delay-type) 10 nop1 nop0)
+
+  ;; T1 dead keys, levels 3–6.
+  dead-rotation (macro (sequence 1200 hidden-delay-type) 10 nop1 nop1)
+  dot-above (macro (sequence 1200 hidden-delay-type) 10 nop1 nop2)
+  dead-rhotic-hook (macro (sequence 1200 hidden-delay-type) 10 nop1 nop3)
+  dead-dot-below (macro (sequence 1200 hidden-delay-type) 10 nop1 nop4)
+
+  ;; T2 dead keys, levels 3, 5 and 6.
+  dead-ring (macro (sequence 1200 hidden-delay-type) 10 nop1 nop5)
+  dead-spiritus-asper (macro (sequence 1200 hidden-delay-type) 10 nop1 nop6)
+  dead-macron (macro (sequence 1200 hidden-delay-type) 10 nop1 nop7)
+)
+
+(defseq
+  diaeresis-a (nop1 nop0 a)
+  diaeresis-u (nop1 nop0 u)
+
+  dot-above-a (nop1 nop2 a)
+  dot-above-e (nop1 nop2 e)
+  dot-above-i (nop1 nop2 i)
+  dot-above-o (nop1 nop2 o)
+)
+
+(defvirtualkeys
+  diaeresis-a (unicode U+00E4)
+  diaeresis-u (unicode U+00FC)
+
+  dot-above-a (unicode U+0227)
+  dot-above-e (unicode U+0117)
+  dot-above-i (unicode U+0130)
+  dot-above-o (unicode U+022F)
 )
 
 (defvirtualkeys
@@ -58,8 +112,9 @@
   (lsft rsft) caps 180 all-released ()
   (nubs ralt) (on-press tap-vkey neo4-lock-toggle) 180 all-released ()
 )
+
 (deflayer qwerty
-  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  (unicode U+0060)  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (tap-hold-press 180 180 (unicode U+005C) (layer-while-held neo3))  (layer-while-held neo3)  a  s  d  f  g  h  j  k  l  ;  _  ret  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003C) (layer-while-held neo4))  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  (unicode U+0060)  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (tap-hold-press 180 180 (unicode U+005C) (layer-while-held neo3))  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003C) (layer-while-held neo4))  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
 )
 
 (deflayer qwerty-shift
@@ -83,7 +138,7 @@
 )
 
 (deflayer neo4
-  (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
+  @dot-above  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  @diaeresis  _
   XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
   (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002E)  XX  _
   (multi lsft (layer-while-held neo7))  (layer-while-held neo4)  esc  tab  XX  XX  C-z  S-;  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
@@ -125,13 +180,13 @@
 
 ;; Compose sequences: common and official examples; this is not the complete Neo database.
 (defseq
-  c001-ae (a e)
+  ;;c001-ae (a e)
   c002-ae (S-a S-e)
   c003-oe (o e)
   c004-oe (S-o S-e)
   c005-ss (s s)
   c006-ss (S-s S-s)
-  c007-th (t h)
+  c007-th (t h) 
   c008-th (S-t S-h)
   c009-dh (d h)
   c010-dh (S-d S-h)
@@ -180,7 +235,7 @@
   c053-right-arrow (- S-.)
   c054-left-arrow (S-, -)
   c055-ellipsis (. . .)
-  c056-em-dash (- - -)
+  c056-em-dash (- - -) 
   c057-half (1 2)
   c058-quarter (1 4)
   c059-three-quarters (3 4)
@@ -190,6 +245,7 @@
   c063-degree (o o)
   c064-ohm (o m)
 )
+
 (defvirtualkeys
   c001-ae (unicode U+00E6)
   c002-ae (unicode U+00C6)
