@@ -1,0 +1,37 @@
+;; kanata config: Neo2 → US QWERTY on base + shift layers
+;; Top row is left completely unchanged (transparent).
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+;; Physical keys we care about (everything except the top row numbers/symbols)
+(defsrc
+  q w e r t y u i o p
+  a s d f g h j k l ;
+  z x c v b n m , . /
+)
+
+(defalias
+  esc_caps (tap-hold 150 200 esc caps)
+
+  ;; Home row mods (Left hand: Win, Alt, Ctrl, Shift)
+  a_met (tap-hold 150 200 a lmet)
+  s_alt (tap-hold 150 200 s lalt)
+  d_ctl (tap-hold 150 200 d lctl)
+  f_sft (tap-hold 150 200 f rsft)
+
+  ;; Home row mods (Right hand mirrored: Shift, Ctrl, Alt, Win)
+  j_sft (tap-hold 150 200 j lsft)
+  k_ctl (tap-hold 150 200 k rctl)
+  l_alt (tap-hold 150 200 l ralt)
+  sc_met (tap-hold 150 200 ; rmet)
+)
+
+;; Base layer: force US QWERTY letters while leaving modifiers/space etc. alone
+(deflayer qwerty
+  q w e r t y u i o p
+  @a_met @s_alt @d_ctl @f_sft g h @j_sft @k_ctl @l_alt @sc_met
+  z x c v b n m , . /
+)
+

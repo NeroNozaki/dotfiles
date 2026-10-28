@@ -65,6 +65,6 @@
   _     _      _      _      _      _     _    _     _      _      _    _    _    _
   _     pgup   bspc   up     del    pgdn  _    7     8      9      +    _    _    _
   home  left   down   rght   end    _     4    5     6      -      _    _    _
-  _     _      tab    ins    ret    _     _    0     1      2      3    .    _
-  _     _      _                    spc              _      _      _ 
+  _     _      tab    ins    ret    _     _    S-;     1      2      3    .    _
+  _     _      _                    0              _      _      _ 
 )
