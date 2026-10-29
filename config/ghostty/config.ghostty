@@ -8,8 +8,10 @@ shell-integration-features = no-cursor
 keybind = ctrl+==increase_font_size:1
 keybind = ctrl+-=decrease_font_size:1
 keybind = ctrl+shift+backspace=close_surface
-keybind = ctrl+shift+h=goto_window:previous
-keybind = ctrl+shift+l=goto_window:next
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
 
 # THEME
 theme = Red Ash
