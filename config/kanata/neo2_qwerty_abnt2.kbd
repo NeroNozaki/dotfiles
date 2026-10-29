@@ -43,7 +43,6 @@
 )
 
 (defalias
-
   m3_l (tap-hold 150 200 esc (layer-while-held neo3))
 
   r-sft (multi rsft (layer-while-held qwerty-shift))
@@ -64,39 +63,35 @@
   ;; General Compose: its sequences begin with nop0.
   compose (macro (sequence 1200 hidden-delay-type) 10 nop0)
 
-  ;; T2, level 4: diaeresis.
-  diaeresis (macro (sequence 1200 hidden-delay-type) 10 nop1 nop0)
-
-  ;; T1 dead keys, levels 3–6.
-  dead-rotation (macro (sequence 1200 hidden-delay-type) 10 nop1 nop1)
-  dot-above (macro (sequence 1200 hidden-delay-type) 10 nop1 nop2)
-  dead-rhotic-hook (macro (sequence 1200 hidden-delay-type) 10 nop1 nop3)
-  dead-dot-below (macro (sequence 1200 hidden-delay-type) 10 nop1 nop4)
-
-  ;; T2 dead keys, levels 3, 5 and 6.
-  dead-ring (macro (sequence 1200 hidden-delay-type) 10 nop1 nop5)
-  dead-spiritus-asper (macro (sequence 1200 hidden-delay-type) 10 nop1 nop6)
-  dead-macron (macro (sequence 1200 hidden-delay-type) 10 nop1 nop7)
+  ;; T2
+  ;; layer 1
+  dead-acute (macro (sequence 1200 hidden-delay-type) 10 nop1 nop2)
+  ;;layer 2
+  dead-grave (macro (sequence 1200 hidden-delay-type) 10 nop2 nop2)
+  ;; layer 3
+  dead-tilde (macro (sequence 1200 hidden-delay-type) 10 nop3 nop2)
+  ;; layer 4
+  dead-circumflex (macro (sequence 1200 hidden-delay-type) 10 nop4 nop2)
 )
+
+
 
 (defseq
-  diaeresis-a (nop1 nop0 a)
-  diaeresis-u (nop1 nop0 u)
-
-  dot-above-a (nop1 nop2 a)
-  dot-above-e (nop1 nop2 e)
-  dot-above-i (nop1 nop2 i)
-  dot-above-o (nop1 nop2 o)
+  acute-a (nop1 nop2 a)
+  acute-e (nop1 nop2 e)
+  acute-o (nop1 nop2 o)
+  acute-S-a (nop1 nop2 S-a)
+  acute-S-e (nop1 nop2 S-e)
+  acute-S-o (nop1 nop2 S-o)
 )
 
-(defvirtualkeys
-  diaeresis-a (unicode U+00E4)
-  diaeresis-u (unicode U+00FC)
-
-  dot-above-a (unicode U+0227)
-  dot-above-e (unicode U+0117)
-  dot-above-i (unicode U+0130)
-  dot-above-o (unicode U+022F)
+(defvirtualkeys 
+  acute-a (unicode á)
+  acute-e (unicode é)
+  acute-o (unicode ó)
+  acute-S-a (unicode Á)
+  acute-S-e (unicode É)
+  acute-S-o (unicode Ó)
 )
 
 (defvirtualkeys
@@ -114,7 +109,7 @@
 )
 
 (deflayer qwerty
-  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  (unicode U+0060)  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (tap-hold-press 180 180 (unicode U+005C) (layer-while-held neo3))  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003C) (layer-while-held neo4))  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @dead-acute  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (tap-hold-press 180 180 (unicode U+005C) (layer-while-held neo3))  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003C) (layer-while-held neo4))  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
 )
 
 (deflayer qwerty-shift
@@ -138,7 +133,7 @@
 )
 
 (deflayer neo4
-  @dot-above  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  @diaeresis  _
+  (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
   XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
   (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002E)  XX  _
   (multi lsft (layer-while-held neo7))  (layer-while-held neo4)  esc  tab  XX  XX  C-z  S-;  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
