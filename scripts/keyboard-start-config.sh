@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-kanata --cfg ~/.dotfiles/config/kanata/neoqwerty.kbd &
+pkill kanata
+kanata --cfg ~/.dotfiles/config/kanata/neo2_qwerty_abnt2.kbd &
+sleep 3
 setxkbmap -option 'shift:both_capslock'
 xset r rate 400 20

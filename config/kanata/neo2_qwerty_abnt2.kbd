@@ -18,20 +18,15 @@
 ;; 5) ABNT2-specific key aliases: nubs=VK_OEM_102 (left of Z); abntc1=VK_ABNT_C1 (extra /?).
 
 (defcfg
-  windows-altgr cancel-lctl-press
   sequence-timeout 1400
   sequence-input-mode visible-backspaced
   concurrent-tap-hold yes
+  process-unmapped-keys yes
 )
 
-(deflocalkeys-win
-  nubs 226
-  abntc1 193
-)
-
-(deflocalkeys-winiov2
-  nubs 226
-  abntc1 193
+(deflocalkeys-linux
+  nubs 86
+  abntc1 89
 )
 
 (defsrc
@@ -134,10 +129,10 @@
 
 (deflayer neo4
   (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
-  XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
-  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002E)  XX  _
-  (multi lsft (layer-while-held neo7))  (layer-while-held neo4)  esc  tab  XX  XX  C-z  S-;  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
-  _  _  _  (unicode U+0030)  (layer-while-held neo4)  _  _
+  XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  7  8  9  S-=  -  (unicode U+02DD)  (layer-while-held neo6)
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  (unicode U+002E)  XX  _
+  (multi lsft (layer-while-held neo7))  (layer-while-held neo4)  esc  tab  XX  XX  C-z  S-;  1  2  3  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
+  _  _  _  0  (layer-while-held neo4)  _  _
 )
 
 (deflayer neo7
