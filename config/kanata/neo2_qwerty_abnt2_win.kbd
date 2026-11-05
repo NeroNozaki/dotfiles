@@ -148,20 +148,20 @@
   _  _  _  (unicode U+00A0)  (layer-while-held neo8)  _  _
 )
 
-(deflayer neo7
-  (multi lalt lsft nlck)  XX  XX  XX  XX  XX  XX  XX  S-tab  (unicode U+002F)  S-8  (unicode U+002D)  XX  _
-  XX  pgup  bspc  up  del  pgdn  XX  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  XX  XX  (layer-while-held neo8)
-  (layer-while-held neo8)  home  left  down  right  end  XX  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002C)  (unicode U+002E)  _
-  (multi lsft (layer-while-held neo7))  (layer-while-held neo7)  esc  tab  XX  XX  C-y  XX  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  XX  XX  (multi rsft (layer-while-held neo7))
-  _  _  _  (unicode U+0030)  (layer-while-held neo7)  _  _
-)
-
 (deflayer neo6
   (unicode U+0323)  (unicode U+00AC)  (unicode U+2228)  (unicode U+2227)  (unicode U+22A5)  (unicode U+2221)  (unicode U+2225)  (unicode U+2192)  (unicode U+221E)  (unicode U+FE00)  (unicode U+2205)  (unicode U+2010)  (unicode U+00AF)  _
   XX  (unicode U+039E)  (unicode U+221A)  (unicode U+039B)  (unicode U+2102)  (unicode U+03A9)  (unicode U+00D7)  (unicode U+03A8)  (unicode U+0393)  (unicode U+03A6)  (unicode U+211A)  (unicode U+2218)  (unicode U+02D8)  (layer-while-held neo6)
   (layer-while-held neo6)  (unicode U+2208)  (unicode U+222B)  (unicode U+2200)  (unicode U+2203)  (unicode U+2208)  (unicode U+03A3)  (unicode U+2115)  (unicode U+211D)  (unicode U+2202)  (unicode U+0394)  (unicode U+2207)  _
   (multi lsft (layer-while-held neo8))  (layer-while-held neo6)  (unicode U+222A)  (unicode U+2229)  (unicode U+2135)  (unicode U+03A0)  (unicode U+2124)  (unicode U+21D0)  (unicode U+21D4)  (unicode U+21D2)  (unicode U+21A6)  (unicode U+0398)  XX  (multi lsft (layer-while-held neo8))
   _  _  _  (unicode U+202F)  (layer-while-held neo6)  _  _
+)
+
+(deflayer neo7
+  (multi lalt lsft nlck)  XX  XX  XX  XX  XX  XX  XX  S-tab  (unicode U+002F)  S-8  (unicode U+002D)  XX  _
+  XX  pgup  bspc  up  del  pgdn  XX  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  XX  XX  (layer-while-held neo8)
+  (layer-while-held neo8)  home  left  down  right  end  XX  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002C)  (unicode U+002E)  _
+  (multi lsft (layer-while-held neo7))  (layer-while-held neo7)  esc  tab  XX  XX  C-y  XX  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  XX  XX  (multi rsft (layer-while-held neo7))
+  _  _  _  (unicode U+0030)  (layer-while-held neo7)  _  _
 )
 
 (deflayer neo8
@@ -171,7 +171,6 @@
   (multi lsft (layer-while-held neo8))  (layer-while-held neo8)  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  (multi lsft (layer-while-held neo8))
   _  _  _  XX  (layer-while-held neo8)  _  _
 )
-
 
 ;; Compose sequences: common and official examples; this is not the complete Neo database.
 (defseq
