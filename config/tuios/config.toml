@@ -121,26 +121,30 @@ tiled = true
 daemon = true
 open_default_window = true
 start_in_terminal_mode = true
-layout = "scrolling"
+layout = "master-stack"
 
 [keybindings]
 leader_key = "ctrl+space"
+
+[keybindings.mode_control]
+hold_window_mode = ["rightalt"]
+enter_terminal_mode = ["i"]
 
 [keybindings.prefix_mode]
 prefix_exit_mode = ["ctrl+esc"]
 
 [keybindings.global]
+close_window = ["alt+backspace"]
+new_window = ["alt+enter"]
 prefix_exit_mode = []
-# terminal_focus_left = ["alt+shift+h"]
-# terminal_focus_down = ["alt+shift+j"]
-# terminal_focus_up = ["alt+shift+k"]
-# terminal_focus_right = ["alt+shift+l"]
 
-[keybindings.window_mode]
+[keybindings.window_management]
 terminal_focus_left = ["left"]
 terminal_focus_down = ["down"]
 terminal_focus_up = ["up"]
 terminal_focus_right = ["right"]
+close_window = ["backspace"]
+new_window = ["enter"]
 
 [appearance]
 theme = ""
@@ -166,8 +170,10 @@ dock_mode_pill = "tiling"
 dock_mode_split_letter = true
 session_border = false
 window_button_style = "dots"
-scroll_column_width = 70
+scroll_column_width = 90
 scroll_column_max = 90
+link_click = "both"
+calm = false
 
 [spotlight]
 enabled = false
