@@ -104,11 +104,11 @@
 )
 
 (deflayer qwerty
-  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @dead-acute  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (tap-hold-press 180 180 (unicode U+005C) (layer-while-held neo3))  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003C) (layer-while-held neo4))  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @dead-acute  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-while-held neo4)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
 )
 
 (deflayer qwerty-shift
-  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  (unicode U+00B8)  _  _  _  _  _  _  _  _  _  _  _  _  _  _  (tap-hold-press 180 180 (unicode U+007C) (layer-while-held neo5))  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003E) (layer-while-held neo7))  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
+  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  (unicode U+00B8)  _  _  _  _  _  _  _  _  _  _  _  _  _  _  (layer-while-held neo5)  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi lsft (layer-while-held qwerty-shift))  (layer-while-held neo7)  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
 )
 
 (deflayer neo3

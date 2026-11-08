@@ -2,6 +2,7 @@
 command = /usr/bin/bash
 shell-integration = bash
 shell-integration-features = no-cursor
+editor = neovim
 
 
 # SHORTCUTS
