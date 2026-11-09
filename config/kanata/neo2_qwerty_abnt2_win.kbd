@@ -50,14 +50,14 @@
 
   ;; Home row mods (Left hand: Win, Alt, Ctrl, Shift)
   a_met (tap-hold 150 200 a lmet)
-  s_alt (tap-hold 150 200 s lalt)
+  s_alt (tap-hold 150 200 s ralt)
   d_ctl (tap-hold 150 200 d lctl)
-  f_sft (tap-hold 150 200 f @r-sft)
+  f_sft (tap-hold 150 200 f @l-sft)
 
   ;; Home row mods (Right hand mirrored: Shift, Ctrl, Alt, Win)
   j_sft (tap-hold 150 200 j @l-sft)
   k_ctl (tap-hold 150 200 k rctl)
-  l_alt (tap-hold 150 200 l ralt)
+  l_alt (tap-hold 150 200 l lalt)
   sc_met (tap-hold 150 200 ; rmet)
 
   ;; General Compose: its sequences begin with nop0.
@@ -94,26 +94,30 @@
   acute-S-o (unicode Ó)
 )
 
-(defvirtualkeys
-  neo4-lock-toggle
-    (switch
-      ((layer neo4-lock)) (layer-switch qwerty) break
-      ()                  (layer-switch neo4-lock) break
-    )
-)
+;;(defvirtualkeys
+;;  neo4-lock-toggle
+;;    (switch
+;;      ((layer neo4-lock)) (layer-switch qwerty) break
+;;      ()                  (layer-switch neo4-lock) break
+;;    )
+;;)
 
 ;; Both Shift keys together emit Windows Caps Lock.
 (defchordsv2
   (lsft rsft) caps 180 all-released ()
-  (nubs ralt) (on-press tap-vkey neo4-lock-toggle) 180 all-released ()
+  ;;(nubs ralt) (on-press tap-vkey neo4-lock-toggle) 180 all-released ()
 )
 
 (deflayer qwerty
-  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @dead-acute  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (tap-hold-press 180 180 (unicode U+005C) (layer-while-held neo3))  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003C) (layer-while-held neo4))  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @dead-acute  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-while-held neo4)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
+)
+
+(deflayer qwerty-hold
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @dead-acute  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-switch qwerty)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-switch qwerty)  rmet  rctl
 )
 
 (deflayer qwerty-shift
-  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  (unicode U+00B8)  _  _  _  _  _  _  _  _  _  _  _  _  _  _  (tap-hold-press 180 180 (unicode U+007C) (layer-while-held neo5))  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi lsft (layer-while-held qwerty-shift))  (tap-hold-press 180 180 (unicode U+003E) (layer-while-held neo7))  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
+  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  (unicode U+00B8)  _  _  _  _  _  _  _  _  _  _  _  _  _  _  (layer-while-held neo5)  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  (layer-while-held neo7)  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
 )
 
 (deflayer neo3
@@ -126,18 +130,18 @@
 
 (deflayer neo4
   (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
-  XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
-  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002E)  XX  _
-  (multi lsft (layer-while-held neo7))  (layer-while-held neo4)  esc  tab  ins  ret  C-z  S-;  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
-  _  _  _  (unicode U+0030)  (layer-while-held neo4)  _  _
+  XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  7  8  9  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  (unicode U+002E)  XX  _
+  (multi lsft (layer-while-held neo7))  (layer-switch neo4-lock)  esc  tab  ins  ret  C-z  S-;  1  2  3  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
+  _  _  _  0  (layer-switch neo4-lock)  _  _
 )
 
 (deflayer neo4-lock
   (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
-  XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  (unicode U+0037)  (unicode U+0038)  (unicode U+0039)  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
-  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  (unicode U+0034)  (unicode U+0035)  (unicode U+0036)  (unicode U+002E)  XX  _
-  (multi lsft (layer-while-held neo7))  (layer-while-held qwerty)  esc  tab  ins  ret  C-z  S-;  (unicode U+0031)  (unicode U+0032)  (unicode U+0033)  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
-  _  _  _  (unicode U+0030)  (layer-while-held qwerty)  _  _
+  XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  7  8  9  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  (unicode U+002E)  XX  _
+  (multi lsft (layer-while-held neo7))  (layer-while-held qwerty-hold)  esc  tab  ins  ret  C-z  S-;  1  2  3  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
+  _  _  _  0  (layer-while-held qwerty-hold)  _  _
 )
 
 (deflayer neo5

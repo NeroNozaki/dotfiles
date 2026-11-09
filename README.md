@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal Linux environment configuration.
+My personal Windows environment configuration. For whenever i need to use windows.
 
 ## Other configs
 
