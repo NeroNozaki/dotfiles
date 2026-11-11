@@ -7,6 +7,17 @@ $env:VISUAL = "nvim"
 Set-Alias -Name yt-dlp -Value yt-dlp.exe
 Set-Alias -name vlc -value "C:\Program Files\VideoLAN\VLC\vlc.exe"
 set-alias -name mpv -value mpvnet.exe
+set-alias -name kanata -value "kanata_windows_tty_winIOv2_x64"
+
+function reload {
+    Write-Host "Reloading PowerShell profile..." -ForegroundColor Cyan
+    if (Test-Path $PROFILE) {
+        . $PROFILE
+        Write-Host "Profile reloaded successfully." -ForegroundColor Green
+    } else {
+        Write-Host "Profile not found at $PROFILE" -ForegroundColor Red
+    }
+}
 
 function youtube-download {
     param([string]$url)

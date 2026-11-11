@@ -55,13 +55,16 @@
   f_sft (tap-hold 150 200 f @l-sft)
 
   ;; Home row mods (Right hand mirrored: Shift, Ctrl, Alt, Win)
-  j_sft (tap-hold 150 200 j @l-sft)
+  j_sft (tap-hold 150 200 j @r-sft)
   k_ctl (tap-hold 150 200 k rctl)
   l_alt (tap-hold 150 200 l lalt)
   sc_met (tap-hold 150 200 ; rmet)
 
   ;; General Compose: its sequences begin with nop0.
   compose (macro (sequence 1200 hidden-delay-type) 10 nop0)
+
+  c-cedilha (unicode ç)
+  C-cedilha (unicode Ç)
 
   ;; T2
   ;; layer 1
@@ -109,15 +112,15 @@
 )
 
 (deflayer qwerty
-  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @dead-acute  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-while-held neo4)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @c-cedilha  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-while-held neo4)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
 )
 
 (deflayer qwerty-hold
-  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @dead-acute  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-switch qwerty)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-switch qwerty)  rmet  rctl
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @c-cedilha  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-switch qwerty)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-switch qwerty)  rmet  rctl
 )
 
 (deflayer qwerty-shift
-  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  (unicode U+00B8)  _  _  _  _  _  _  _  _  _  _  _  _  _  _  (layer-while-held neo5)  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  (layer-while-held neo7)  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
+  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  @C-cedilha  _  _  _  _  _  _  _  _  _  _  _  _  _  _  (layer-while-held neo5)  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  (layer-while-held neo7)  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
 )
 
 (deflayer neo3
@@ -131,7 +134,7 @@
 (deflayer neo4
   (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
   XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  7  8  9  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
-  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  (unicode U+002E)  XX  _
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  ,  .  _ 
   (multi lsft (layer-while-held neo7))  (layer-switch neo4-lock)  esc  tab  ins  ret  C-z  S-;  1  2  3  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
   _  _  _  0  (layer-switch neo4-lock)  _  _
 )
@@ -139,7 +142,7 @@
 (deflayer neo4-lock
   (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
   XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  7  8  9  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
-  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  (unicode U+002E)  XX  _
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  ,  .  _
   (multi lsft (layer-while-held neo7))  (layer-while-held qwerty-hold)  esc  tab  ins  ret  C-z  S-;  1  2  3  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
   _  _  _  0  (layer-while-held qwerty-hold)  _  _
 )
@@ -310,4 +313,3 @@
   c063-degree (unicode U+00B0)
   c064-ohm (unicode U+03A9)
 )
-
