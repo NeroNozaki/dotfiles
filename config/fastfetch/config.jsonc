@@ -4,8 +4,8 @@
     "type": "auto",
     "source": "",
     "color": {
-      "1": "red",
-      // "2": "",
+    // "1": "red",
+    // "2": "",
     //   "3": "",
     //   "4": "",
     //   "5": "",
@@ -134,7 +134,7 @@
     "processingTimeout": 5000,
     "detectVersion": true,
     "playerName": "",
-    "dsForceDrm": false
+    // "dsForceDrm": false
   },
 
     "modules": [
