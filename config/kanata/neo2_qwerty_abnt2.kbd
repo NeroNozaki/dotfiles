@@ -45,14 +45,14 @@
 
   ;; Home row mods (Left hand: Win, Alt, Ctrl, Shift)
   a_met (tap-hold 150 200 a lmet)
-  s_alt (tap-hold 150 200 s ralt)
+  s_alt (tap-hold 150 200 s lalt)
   d_ctl (tap-hold 150 200 d lctl)
   f_sft (tap-hold 150 200 f @l-sft)
 
   ;; Home row mods (Right hand mirrored: Shift, Ctrl, Alt, Win)
   j_sft (tap-hold 150 200 j @l-sft)
   k_ctl (tap-hold 150 200 k rctl)
-  l_alt (tap-hold 150 200 l lalt)
+  l_alt (tap-hold 150 200 l ralt)
   sc_met (tap-hold 150 200 ; rmet)
 
   ;; General Compose: its sequences begin with nop0.
@@ -126,7 +126,7 @@
 (deflayer neo4
   (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
   XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  7  8  9  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
-  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  (unicode U+002E)  XX  _
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  ,  .  _
   (multi lsft (layer-while-held neo7))  (layer-switch neo4-lock)  esc  tab  ins  ret  C-z  S-;  1  2  3  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
   _  _  _  0  (layer-switch neo4-lock)  _  _
 )
@@ -134,7 +134,7 @@
 (deflayer neo4-lock
   (unicode U+02D9)  (unicode U+00AA)  (unicode U+00BA)  (unicode U+2116)  XX  (unicode U+00B7)  (unicode U+00A3)  (unicode U+00A4)  tab  (unicode U+002F)  S-8  (unicode U+002D)  (unicode U+00A8)  _
   XX  pgup  bspc  up  del  pgdn  (unicode U+00A1)  7  8  9  S-=  (unicode U+2212)  (unicode U+02DD)  (layer-while-held neo6)
-  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  (unicode U+002E)  XX  _
+  (layer-while-held neo6)  home  left  down  right  end  (unicode U+00BF)  4  5  6  ,  .  _
   (multi lsft (layer-while-held neo7))  (layer-while-held qwerty-hold)  esc  tab  ins  ret  C-z  S-;  1  2  3  (unicode U+003B)  XX  (multi rsft (layer-while-held neo7))
   _  _  _  0  (layer-while-held qwerty-hold)  _  _
 )

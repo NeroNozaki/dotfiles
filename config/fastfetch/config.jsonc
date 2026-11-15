@@ -146,7 +146,7 @@
 
         {
             "type": "host",
-            "key": "󰌢  PC",
+            "key": "󰌢 PC",
             "keyColor": "green"
         },
 
@@ -187,7 +187,7 @@
 
         {
             "type": "os",
-            "key": "  OS",
+            "key": " OS",
             "keyColor": "yellow"
         },
 
@@ -218,7 +218,7 @@
         "break",
         {
             "type": "de",
-            "key": "󰧨  DE",
+            "key": "󰧨 DE",
             "keyColor": "blue"
         },
 

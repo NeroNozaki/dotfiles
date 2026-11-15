@@ -5,6 +5,7 @@ if command -v dircolors >/dev/null 2>&1; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
+    alias rg='rg --color=auto'
     alias grep='rg --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -24,8 +25,6 @@ alias reload='source ~/.bashrc'
 alias tmux-reload='tmux source ~/.config/tmux/tmux.conf'
 
 alias rebuild='sudo nixos-rebuild switch'
-
-alias dotfiles="~/.dotfiles"
 
 alias python="python3"
 alias zig-quiet="ZIG_PROGRESS=100 zig"

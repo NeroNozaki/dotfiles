@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ps -eo args | rg -q 'kanata.*neo2_qwerty_abnt2\.kbd'; then
+if ps -eo args | rg -q 'kanata.*neo-fix-and-hrm\.kbd'; then
     state=1
 else
     state=0
@@ -8,17 +8,10 @@ fi
 
 if [[ $state -eq 1 ]]; then
     pkill kanata
-    kanata --cfg ~/.dotfiles/config/kanata/neoqwerty-nomods.kbd &
-    sleep 1
-    setxkbmap -option 'shift:both_capslock'
     xset r rate 400 20
     notify-send -u low -t 1500 "Mods" "Off"
 else
-    pkill kanata
-    kanata --cfg ~/.dotfiles/config/kanata/neo2_qwerty_abnt2.kbd &
-    sleep 1
-    setxkbmap -option 'shift:both_capslock'
-    xset r rate 400 20
+    start-custom-keyboard
     notify-send -u low -t 1500 "Mods" "On"
 fi
 

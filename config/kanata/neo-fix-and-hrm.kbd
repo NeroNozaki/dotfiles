@@ -1,0 +1,81 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps a s d f j k l ; lsft rsft ralt bksl lsgt
+)
+
+(defalias
+  caps_esc (tap-hold 150 200 esc (multi caps (layer-while-held neo3)))
+  caps_esc4 (tap-hold 150 200 esc (multi caps (layer-while-held neo4)))
+  caps_esc7 (tap-hold 150 200 esc (multi caps (layer-while-held neo7)))
+  caps_esc8 (tap-hold 150 200 esc (multi caps (layer-while-held neo8)))
+
+  mod3c (multi caps (layer-while-held neo3))
+  mod3c4 (multi caps (layer-while-held neo4))
+  mod3c7 (multi caps (layer-while-held neo7))
+  mod3c8 (multi caps (layer-while-held neo8))
+
+  l_sft (multi lsft (layer-while-held shift))
+  r_sft (multi rsft (layer-while-held shift))
+
+  mod5 (multi f19 (layer-while-held neo5))
+  mod5_6 (multi f19 (layer-while-held neo6))
+  mod5_7 (multi f19 (layer-while-held neo7))
+  mod5_8 (multi f19 (layer-while-held neo8))
+
+  mod3b (multi bksl (layer-while-held neo3))
+  mod3b4 (multi bksl (layer-while-held neo4))
+  mod3b7 (multi bksl (layer-while-held neo7))
+  mod3b8 (multi bksl (layer-while-held neo8))
+
+  mod5l (multi lsgt (layer-while-held neo5))
+  mod5l6 (multi lsgt (layer-while-held neo6))
+  mod5l7 (multi lsgt (layer-while-held neo7))
+  mod5l8 (multi lsgt (layer-while-held neo8))
+
+  ;; Home row mods (Left hand: Win, Alt, Ctrl, Shift)
+  a_met (tap-hold 150 200 a lmet)
+  s_alt (tap-hold 150 200 s lalt)
+  d_ctl (tap-hold 150 200 d lctl)
+  f_sft (tap-hold 150 200 f rsft)
+
+  ;; Home row mods (Right hand mirrored: Shift, Ctrl, Alt, Win)
+  j_sft (tap-hold 150 200 j lsft)
+  k_ctl (tap-hold 150 200 k rctl)
+  l_alt (tap-hold 150 200 l ralt)
+  sc_met (tap-hold 150 200 ; rmet)
+)
+
+(deflayer base
+  @caps_esc @a_met @s_alt @d_ctl @f_sft @j_sft @k_ctl @l_alt @sc_met @l_sft @r_sft @mod5 @mod3b @mod5l
+)
+
+(deflayer shift
+  @caps_esc4 @a_met @s_alt @d_ctl @f_sft @j_sft @k_ctl @l_alt @sc_met lsft rsft @mod5_6 @mod3b4 @mod5l6
+)
+
+(deflayer neo3
+  @mod3c a s d f j k l ; lsft rsft @mod5_7 @mod3b @mod5l7
+)
+
+(deflayer neo4
+  @mod3c4 a s d f j k l ; lsft rsft @mod5_8 @mod3b4 @mod5l8
+)
+
+(deflayer neo5
+  @mod3c7 a s d f j k l ; lsft rsft @mod5 @mod3b7 @mod5l
+)
+
+(deflayer neo6
+  @mod3c8 a s d f j k l ; lsft rsft @mod5_6 @mod3b8 @mod5l6
+)
+
+(deflayer neo7
+  @mod3c a s d f j k l ; lsft rsft @mod5 @mod3b @mod5l
+)
+
+(deflayer neo8
+  @mod3c4 a s d f j k l ; lsft rsft @mod5_6 @mod3b4 @mod5l6
+)

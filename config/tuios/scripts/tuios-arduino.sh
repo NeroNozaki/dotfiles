@@ -33,7 +33,7 @@ fi
 
 # Initialize the Arduino CLI shell.
 tuios send-text -s "$session" -w cli \
-    $'clear\nsource "$HOME/.config/tuios/scripts/arduino.sh"\nclear\narduino-cli board list\n'
+    $'clear\nsource "$HOME/.config/tuios/scripts/arduino.fish"\nclear\narduino-cli board list\n'
 
 # Start the serial monitor.
 tuios send-text -s "$session" -w monitor \

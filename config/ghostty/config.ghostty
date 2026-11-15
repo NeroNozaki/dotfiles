@@ -1,8 +1,7 @@
 # SHELL
-command = /usr/bin/bash
-shell-integration = bash
+command = /usr/bin/fish
+shell-integration = fish
 shell-integration-features = no-cursor
-editor = neovim
 
 
 # SHORTCUTS
