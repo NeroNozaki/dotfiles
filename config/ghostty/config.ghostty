@@ -12,6 +12,24 @@ keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+k=goto_split:up
 keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+digit_1=goto_tab:1
+keybind = ctrl+shift+digit_2=goto_tab:2
+keybind = ctrl+shift+digit_3=goto_tab:3
+keybind = ctrl+shift+digit_4=goto_tab:4
+keybind = ctrl+shift+digit_5=goto_tab:5
+keybind = ctrl+shift+digit_6=goto_tab:6
+keybind = ctrl+shift+digit_7=goto_tab:7
+keybind = ctrl+shift+digit_8=goto_tab:8
+keybind = ctrl+shift+1=goto_tab:1
+keybind = ctrl+shift+2=goto_tab:2
+keybind = ctrl+shift+3=goto_tab:3
+keybind = ctrl+shift+4=goto_tab:4
+keybind = ctrl+shift+5=goto_tab:5
+keybind = ctrl+shift+6=goto_tab:6
+keybind = ctrl+shift+7=goto_tab:7
+keybind = ctrl+shift+8=goto_tab:8
+keybind = ctrl+shift+9=last_tab
+keybind = f19=ignore
 
 # THEME
 theme = Red Ash

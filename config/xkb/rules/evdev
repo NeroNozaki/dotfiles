@@ -1,0 +1,10 @@
+// Local XKB rules
+// Extend the system evdev rules with the custom layout.
+
+! include /usr/share/X11/xkb/rules/evdev
+
+! model layout variant = symbols
+  *     cu     basic   = pc+cu(basic)
+
+! model layout = symbols
+  *     cu            = pc+cu

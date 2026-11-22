@@ -10,5 +10,5 @@ for script in "$SOURCE"/*; do
     [[ -f "$script" && -x "$script" ]] || continue
 
     name="${script##*/}"
-    ln -sfn "$script" "$TARGET/$name"
+    ln -sfnv "$script" "$TARGET/$name"
 done

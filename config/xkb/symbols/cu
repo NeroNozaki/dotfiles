@@ -40,12 +40,14 @@ xkb_symbols "basic" {
     key <AC07> { [ j,                       J,                       parenleft,               Greek_nu,                KP_4,                    KP_4,                    U2115,                   NoSymbol                 ] };
     key <AC08> { [ k,                       K,                       parenright,              Greek_rho,               KP_5,                    KP_5,                    U211D,                   NoSymbol                 ] };
     key <AC09> { [ l,                       L,                       minus,                   Greek_tau,               KP_6,                    KP_6,                    partialderivative,       NoSymbol                 ] };
-    key <AC10> { [ semicolon,                       colon,                       colon,                   Greek_delta,             KP_Separator,            comma,                   Greek_DELTA,             NoSymbol                 ] };
 
+    key.type[Group1] = "EIGHT_LEVEL_WITH_LEVEL5_LOCK";
+    key <AC10> { [ semicolon,                       colon,                       colon,                   Greek_delta,             KP_Separator,            comma,                   Greek_DELTA,             NoSymbol                 ] };
     key <AC11> { [ apostrophe,                       quotedbl,                       at,                      Greek_upsilon,           period,                  KP_Decimal,              nabla,                   NoSymbol                 ] };
 
     // Bottom row
-    // --------------------------------------------------------------
+    // -------------------------------------------
+    key.type[Group1] = "EIGHT_LEVEL_ALPHABETIC_WITH_LEVEL5_LOCK";
     key <AB01> { [ z,              Z,              numbersign,              NoSymbol,                Escape,                  Escape,                  union,                   NoSymbol                 ] };
     key <AB02> { [ x,              X,              dollar,                  U03F5,                   Tab,                     Tab,                     intersection,            NoSymbol                 ] };
     key <AB03> { [ c,              C,              bar,                     Greek_eta,               Insert,                  Insert,                  U2135,                   NoSymbol                 ] };
@@ -54,22 +56,20 @@ xkb_symbols "basic" {
 
     key <AB06> { [ n,                       N,                       plus,                    Greek_beta,              colon,                   NoSymbol,                U21D0,                   NoSymbol                 ] };
     key <AB07> { [ m,                       M,                       percent,                 Greek_mu,                KP_1,                    KP_1,                    ifonlyif,                NoSymbol                 ] };
+
     key.type[Group1] = "EIGHT_LEVEL_WITH_LEVEL5_LOCK";
     key <AB08> { [ comma,                   endash,                  quotedbl,                U03F1,                   KP_2,                    KP_2,                    U21D2,                   NoSymbol                 ] };
     key <AB09> { [ period,                  enfilledcircbullet,      apostrophe,              U03D1,                   KP_3,                    KP_3,                    U21A6,                   NoSymbol                 ] };
-    key.type[Group1] = "EIGHT_LEVEL_ALPHABETIC_WITH_LEVEL5_LOCK";
     key <AB10> { [ slash,                       question,                       semicolon,               Greek_theta,             semicolon,               NoSymbol,                Greek_THETA,             NoSymbol                 ] };
 
 
     // Level 5 activation
     // --------------------------------------------------------------
-    // Physical Right Alt is remapped to F13 in Kanata, so F13 (not Alt_R)
+    // Physical Right Alt is remapped to F19 in Kanata, so F19 (not Alt_R)
     // activates level 5. This keeps real Alt_R free for the home-row mod.
     key <FK19> { type[Group1] = "EIGHT_LEVEL",
                  symbols[Group1] = [ ISO_Level5_Shift, ISO_Level5_Shift, ISO_Level5_Shift, ISO_Level5_Shift,
                                      ISO_Level5_Lock,  ISO_Level5_Lock,  ISO_Level5_Lock,  ISO_Level5_Lock  ] };
 
     key <RALT> { type[Group1] = "ONE_LEVEL", symbols[Group1] = [ Alt_R ] };
-    modifier_map Mod1 { <RALT> };
-
 };
