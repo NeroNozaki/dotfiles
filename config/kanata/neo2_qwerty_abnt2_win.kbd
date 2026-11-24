@@ -63,38 +63,109 @@
   ;; General Compose: its sequences begin with nop0.
   compose (macro (sequence 1200 hidden-delay-type) 10 nop0)
 
-  c-cedilha (unicode ç)
-  C-cedilha (unicode Ç)
+  ;; T1
+  ;; layer 1
+  dead-acute (macro (sequence 1200 hidden-delay-type) 10 nop1 nop1)
+  ;; layer 2
+  dead-grave (macro (sequence 1200 hidden-delay-type) 10 nop1 nop2)
+  ;; layer 3
+  ;; layer 4
 
   ;; T2
   ;; layer 1
-  dead-acute (macro (sequence 1200 hidden-delay-type) 10 nop1 nop2)
-  ;;layer 2
-  dead-grave (macro (sequence 1200 hidden-delay-type) 10 nop2 nop2)
+  dead-tilde (macro (sequence 1200 hidden-delay-type) 10 nop2 nop1)
+  ;; layer 2
+  dead-circumflex (macro (sequence 1200 hidden-delay-type) 10 nop2 nop2)
   ;; layer 3
-  dead-tilde (macro (sequence 1200 hidden-delay-type) 10 nop3 nop2)
   ;; layer 4
-  dead-circumflex (macro (sequence 1200 hidden-delay-type) 10 nop4 nop2)
+
+
+  ;; T3
+  ;; layer 1
+  ;; layer 2
+  dead-cedilla (macro (sequence 1200 hidden-delay-type) 10 nop3 nop2)
+  ;; layer 3
+  ;; layer 4
 )
-
-
 
 (defseq
-  acute-a (nop1 nop2 a)
-  acute-e (nop1 nop2 e)
-  acute-o (nop1 nop2 o)
-  acute-S-a (nop1 nop2 S-a)
-  acute-S-e (nop1 nop2 S-e)
-  acute-S-o (nop1 nop2 S-o)
+  ;; Standard Latin Lowercase
+  acute-a (nop1 nop1 a)
+  acute-c (nop1 nop1 c)
+  acute-e (nop1 nop1 e)
+  acute-g (nop1 nop1 g)
+  acute-i (nop1 nop1 i)
+  acute-k (nop1 nop1 k)
+  acute-l (nop1 nop1 l)
+  acute-m (nop1 nop1 m)
+  acute-n (nop1 nop1 n)
+  acute-o (nop1 nop1 o)
+  acute-p (nop1 nop1 p)
+  acute-r (nop1 nop1 r)
+  acute-s (nop1 nop1 s)
+  acute-u (nop1 nop1 u)
+  acute-w (nop1 nop1 w)
+  acute-y (nop1 nop1 y)
+  acute-z (nop1 nop1 z)
+
+  ;; Standard Latin Uppercase
+  acute-S-a (nop1 nop1 S-a)
+  acute-S-c (nop1 nop1 S-c)
+  acute-S-e (nop1 nop1 S-e)
+  acute-S-g (nop1 nop1 S-g)
+  acute-S-i (nop1 nop1 S-i)
+  acute-S-k (nop1 nop1 S-k)
+  acute-S-l (nop1 nop1 S-l)
+  acute-S-m (nop1 nop1 S-m)
+  acute-S-n (nop1 nop1 S-n)
+  acute-S-o (nop1 nop1 S-o)
+  acute-S-p (nop1 nop1 S-p)
+  acute-S-r (nop1 nop1 S-r)
+  acute-S-s (nop1 nop1 S-s)
+  acute-S-u (nop1 nop1 S-u)
+  acute-S-w (nop1 nop1 S-w)
+  acute-S-y (nop1 nop1 S-y)
+  acute-S-z (nop1 nop1 S-z)
 )
 
-(defvirtualkeys 
+(defvirtualkeys
+  ;; Standard Latin Lowercase
   acute-a (unicode á)
+  acute-c (unicode ć)
   acute-e (unicode é)
+  acute-g (unicode ǵ)
+  acute-i (unicode í)
+  acute-k (unicode ḱ)
+  acute-l (unicode ĺ)
+  acute-m (unicode ḿ)
+  acute-n (unicode ń)
   acute-o (unicode ó)
+  acute-p (unicode ṕ)
+  acute-r (unicode ŕ)
+  acute-s (unicode ś)
+  acute-u (unicode ú)
+  acute-w (unicode ẃ)
+  acute-y (unicode ý)
+  acute-z (unicode ź)
+
+  ;; Standard Latin Uppercase
   acute-S-a (unicode Á)
+  acute-S-c (unicode Ć)
   acute-S-e (unicode É)
+  acute-S-g (unicode Ǵ)
+  acute-S-i (unicode Í)
+  acute-S-k (unicode Ḱ)
+  acute-S-l (unicode Ĺ)
+  acute-S-m (unicode Ḿ)
+  acute-S-n (unicode Ń)
   acute-S-o (unicode Ó)
+  acute-S-p (unicode Ṕ)
+  acute-S-r (unicode Ŕ)
+  acute-S-s (unicode Ś)
+  acute-S-u (unicode Ú)
+  acute-S-w (unicode Ẃ)
+  acute-S-y (unicode Ý)
+  acute-S-z (unicode Ź)
 )
 
 ;;(defvirtualkeys
@@ -112,15 +183,15 @@
 )
 
 (deflayer qwerty
-  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @c-cedilha  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-while-held neo4)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  _  bspc  tab  q  w  e  r  t  y  u  i  o  p  @dead-acute  @dead-tilde  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-while-held neo4)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-while-held neo4)  rmet  rctl
 )
 
 (deflayer qwerty-hold
-  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  @c-cedilha  bspc  tab  q  w  e  r  t  y  u  i  o  p  [  ]  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-switch qwerty)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-switch qwerty)  rmet  rctl
+  (unicode U+005E)  1  2  3  4  5  6  7  8  9  0  -  _  bspc  tab  q  w  e  r  t  y  u  i  o  p  @dead-acute  @dead-tilde  (layer-while-held neo3)  @m3_l  @a_met  @s_alt  @d_ctl  @f_sft  g  h  @j_sft  @k_ctl  @l_alt  @sc_met  _  ret  (multi lsft (layer-while-held qwerty-shift))  (layer-switch qwerty)  z  x  c  v  b  n  m  ,  .  /  /  (multi rsft (layer-while-held qwerty-shift))  lctl  lmet  lalt  spc  (layer-switch qwerty)  rmet  rctl
 )
 
 (deflayer qwerty-shift
-  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  @C-cedilha  _  _  _  _  _  _  _  _  _  _  _  _  _  _  (layer-while-held neo5)  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  (layer-while-held neo7)  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
+  (unicode U+02C7)  (unicode U+00B0)  (unicode U+00A7)  (unicode U+2113)  (unicode U+00BB)  (unicode U+00AB)  (unicode U+0024)  (unicode U+20AC)  (unicode U+201E)  (unicode U+201C)  (unicode U+201D)  (unicode U+2014)  @dead-cedilla  _  _  _  _  _  _  _  _  _  _  _  _  @dead-grave  @dead-circumflex (layer-while-held neo5)  (layer-while-held neo5)  _  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  (layer-while-held neo7)  _  _  _  _  _  _  _  _  _  _  _  (multi rsft (layer-while-held qwerty-shift))  _  _  _  _  (layer-while-held neo7)  _  _
 )
 
 (deflayer neo3
